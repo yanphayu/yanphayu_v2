@@ -40,6 +40,22 @@
 
         <article class="card project-card featured-card">
           <div class="project-banner">
+            <img src="/image/projects/yanphayu_v2.png" alt="yanphayu_v2 — this portfolio website screenshot" class="project-img">
+            <span class="badge">Portfolio v2</span>
+          </div>
+          <h3 class="card-title">yanphayu_v2</h3>
+          <p class="project-desc">My current portfolio — this very website. A professional light theme built with Vue 3 and Vite, with dark/light mode.</p>
+          <div class="project-stack mono">
+            <span>Vue 3</span><span>Vite</span>
+          </div>
+          <div class="project-links">
+            <a href="https://yanphayuv2.vercel.app" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">Live Demo</a>
+            <a href="https://github.com/yanphayu/yanphayu_v2" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">Source</a>
+          </div>
+        </article>
+
+        <article class="card project-card featured-card">
+          <div class="project-banner">
             <img src="/image/projects/yanphayu_v1.png" alt="yanphayu_v1 — my first portfolio website screenshot" class="project-img">
             <span class="badge">Portfolio v1</span>
           </div>
