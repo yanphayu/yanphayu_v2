@@ -29,9 +29,19 @@ function resizeCanvas(p) {
   }
 }
 
+function themeColors() {
+  const cs = getComputedStyle(document.documentElement)
+  const v = (name, fallback) => cs.getPropertyValue(name).trim() || fallback
+  return {
+    bg: v('--canvas-bg', '#EEF2F7'),
+    barA: v('--primary', '#2563EB'),
+    barB: v('--accent', '#06B6D4')
+  }
+}
+
 function drawIdle(p) {
   const c = p.canvas.getContext('2d')
-  c.fillStyle = '#EEF2F7'
+  c.fillStyle = themeColors().bg
   c.fillRect(0, 0, p.canvas.width, p.canvas.height)
 }
 
@@ -59,7 +69,8 @@ function buildPlayer(i) {
     const c = p.canvas.getContext('2d')
     const w = p.canvas.width
     const h = p.canvas.height
-    c.fillStyle = '#EEF2F7'
+    const tc = themeColors()
+    c.fillStyle = tc.bg
     c.fillRect(0, 0, w, h)
 
     const bars = 28
@@ -72,7 +83,7 @@ function buildPlayer(i) {
       if (p.smoothVals) p.smoothVals.fill(0)
       p.globalLevel = 0
       for (let j = 0; j < bars; j++) {
-        c.fillStyle = j % 2 === 0 ? '#2563EB' : '#06B6D4'
+        c.fillStyle = j % 2 === 0 ? tc.barA : tc.barB
         c.fillRect(j * step, h - 2, bw, 2)
       }
       return
@@ -121,7 +132,7 @@ function buildPlayer(i) {
       else p.peakHolds[j] *= 0.88
       const bh = Math.max(2, Math.floor(p.peakHolds[j] * (h - 4)))
       const x = j * step
-      c.fillStyle = j % 2 === 0 ? '#2563EB' : '#06B6D4'
+      c.fillStyle = j % 2 === 0 ? tc.barA : tc.barB
       c.fillRect(x, h - bh, bw, bh)
     }
   }
@@ -217,11 +228,18 @@ function onWindowResize() {
   })
 }
 
+function onThemeChange() {
+  players.forEach((p) => {
+    if (p && !p.playing) drawIdle(p)
+  })
+}
+
 onMounted(() => {
   tracks.forEach((_, i) => {
     players[i] = buildPlayer(i)
   })
   window.addEventListener('resize', onWindowResize)
+  document.addEventListener('themechange', onThemeChange)
   document.addEventListener('pointerdown', () => {
     players.forEach((p) => {
       if (p && p.audioCtx && p.audioCtx.state === 'suspended') p.audioCtx.resume()
@@ -231,6 +249,7 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   window.removeEventListener('resize', onWindowResize)
+  document.removeEventListener('themechange', onThemeChange)
   players.forEach((p) => {
     if (p) {
       cancelAnimationFrame(p.rafId)
