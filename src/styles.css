@@ -193,6 +193,7 @@ h1, h2, h3 {
   display: flex;
   gap: 30px;
   min-width: 0;
+  overflow-y: hidden;
 }
 
 .nav-link {
@@ -341,7 +342,7 @@ h1, h2, h3 {
   font-weight: 600;
   font-size: 0.95rem;
   cursor: pointer;
-  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
 
 .btn-primary {
@@ -352,8 +353,6 @@ h1, h2, h3 {
 .btn-primary:hover {
   background: var(--primary-hover);
   color: #fff;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.3);
 }
 
 .btn-secondary {
@@ -365,7 +364,6 @@ h1, h2, h3 {
 .btn-secondary:hover {
   border-color: var(--primary);
   color: var(--primary);
-  transform: translateY(-2px);
 }
 
 .btn-sm {
@@ -387,8 +385,7 @@ h1, h2, h3 {
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow);
+  border-color: var(--primary);
 }
 
 .card-title {
@@ -848,10 +845,6 @@ h1, h2, h3 {
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
-}
-
-.card.reveal.visible:hover {
-  transform: translateY(-4px);
 }
 
 /* ==========================================================

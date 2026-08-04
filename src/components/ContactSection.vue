@@ -37,14 +37,14 @@ async function onSubmit(e) {
   statusClass.value = ''
 
   if (!name || !email || !message) {
-    statusText.value = '// please fill in all required fields.'
+    statusText.value = 'please fill in all required fields.'
     statusClass.value = 'error'
     return
   }
 
   const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
   if (!emailOk) {
-    statusText.value = '// please enter a valid email address.'
+    statusText.value = 'please enter a valid email address.'
     statusClass.value = 'error'
     return
   }
@@ -53,14 +53,14 @@ async function onSubmit(e) {
 
   try {
     await sendTelegram({ name, email, subject, message })
-    statusText.value = '// message sent! I will get back to you soon.'
+    statusText.value = 'message sent! I will get back to you soon.'
     statusClass.value = 'success'
     e.target.reset()
   } catch (err) {
     if (err.message === 'not-configured') {
-      statusText.value = '// telegram not configured yet.'
+      statusText.value = 'telegram not configured yet.'
     } else {
-      statusText.value = '// something went wrong. try again later.'
+      statusText.value = 'something went wrong. try again later.'
     }
     statusClass.value = 'error'
   } finally {

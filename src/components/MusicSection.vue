@@ -31,7 +31,7 @@ function resizeCanvas(p) {
 
 function drawIdle(p) {
   const c = p.canvas.getContext('2d')
-  c.fillStyle = '#0B1220'
+  c.fillStyle = '#EEF2F7'
   c.fillRect(0, 0, p.canvas.width, p.canvas.height)
 }
 
@@ -59,20 +59,21 @@ function buildPlayer(i) {
     const c = p.canvas.getContext('2d')
     const w = p.canvas.width
     const h = p.canvas.height
-    c.fillStyle = '#0B1220'
+    c.fillStyle = '#EEF2F7'
     c.fillRect(0, 0, w, h)
 
     const bars = 28
     const gap = 2
-    const bw = Math.max(1, Math.floor(w / bars) - gap)
+    const step = w / bars
+    const bw = Math.max(1, step - gap)
 
     if (!p.playing) {
       if (p.peakHolds) p.peakHolds.fill(0)
       if (p.smoothVals) p.smoothVals.fill(0)
       p.globalLevel = 0
       for (let j = 0; j < bars; j++) {
-        c.fillStyle = j % 2 === 0 ? '#3B82F6' : '#06B6D4'
-        c.fillRect(j * (bw + gap), h - 2, bw, 2)
+        c.fillStyle = j % 2 === 0 ? '#2563EB' : '#06B6D4'
+        c.fillRect(j * step, h - 2, bw, 2)
       }
       return
     }
@@ -119,8 +120,8 @@ function buildPlayer(i) {
       if (p.smoothVals[j] > p.peakHolds[j]) p.peakHolds[j] = p.smoothVals[j]
       else p.peakHolds[j] *= 0.88
       const bh = Math.max(2, Math.floor(p.peakHolds[j] * (h - 4)))
-      const x = Math.floor(j * (bw + gap))
-      c.fillStyle = j % 2 === 0 ? '#3B82F6' : '#06B6D4'
+      const x = j * step
+      c.fillStyle = j % 2 === 0 ? '#2563EB' : '#06B6D4'
       c.fillRect(x, h - bh, bw, bh)
     }
   }
