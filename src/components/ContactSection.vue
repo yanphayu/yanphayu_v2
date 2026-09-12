@@ -91,7 +91,7 @@ async function onSubmit(e) {
             </li>
             <li>
               <span class="mono accent">Telegram</span>
-              <a href="https://t.me/yukkk99999" target="_blank" rel="noopener">@yukkk99999</a>
+              <a href="https://t.me/yanphayu" target="_blank" rel="noopener">@yanphayu</a>
             </li>
           </ul>
         </div>
