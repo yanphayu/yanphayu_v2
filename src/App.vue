@@ -12,7 +12,6 @@ import ContactSection from './components/ContactSection.vue'
 import FooterBar from './components/FooterBar.vue'
 
 let spyObserver = null
-let revealObserver = null
 
 onMounted(async () => {
   await nextTick()
@@ -30,33 +29,10 @@ onMounted(async () => {
     )
     sections.forEach((sec) => spyObserver.observe(sec))
   }
-
-  /* ---------- Scroll reveal ---------- */
-  const revealEls = document.querySelectorAll('.card, .section-title, .section-subtitle')
-  if ('IntersectionObserver' in window) {
-    revealObserver = new IntersectionObserver(
-      (entries, obs) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible')
-            obs.unobserve(entry.target)
-          }
-        })
-      },
-      { threshold: 0.08 }
-    )
-    revealEls.forEach((el) => {
-      el.classList.add('reveal')
-      revealObserver.observe(el)
-    })
-  } else {
-    revealEls.forEach((el) => el.classList.add('visible'))
-  }
 })
 
 onBeforeUnmount(() => {
   if (spyObserver) spyObserver.disconnect()
-  if (revealObserver) revealObserver.disconnect()
 })
 </script>
 

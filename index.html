@@ -33,6 +33,13 @@
       } catch (e) {
         document.documentElement.setAttribute('data-theme', 'light');
       }
+      try {
+        var s = localStorage.getItem('portfolio-style');
+        var ok = ['professional','glassmorphism','neumorphism','neobrutalism','flat','minimalism'];
+        document.documentElement.setAttribute('data-style', ok.indexOf(s) !== -1 ? s : 'professional');
+      } catch (e) {
+        document.documentElement.setAttribute('data-style', 'professional');
+      }
     })();
   </script>
 </head>

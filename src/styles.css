@@ -461,11 +461,6 @@ h1, h2, h3 {
   border-radius: var(--radius);
   padding: var(--card-padding);
   box-shadow: var(--shadow-sm);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.card:hover {
-  border-color: var(--primary);
 }
 
 .card-title {
@@ -577,11 +572,6 @@ h1, h2, h3 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.project-card:hover .project-img {
-  transform: scale(1.04);
 }
 
 .badge {
@@ -1033,4 +1023,388 @@ h1, h2, h3 {
   .section {
     padding: 64px 0;
   }
+}
+
+/* ==========================================================
+   DESIGN STYLE SKINS — set via [data-style] on <html>.
+   These remap shape / border / shadow / font variables so the
+   whole page reskins without touching component markup.
+   Colors (light/dark) remain under [data-theme].
+   ========================================================== */
+
+/* ---------- Glassmorphism ---------- */
+[data-style="glassmorphism"] {
+  --bg: #EEF1FF;
+  --surface: rgba(255, 255, 255, 0.5);
+  --surface-soft: rgba(255, 255, 255, 0.35);
+  --border: rgba(255, 255, 255, 0.6);
+  --text: #232743;
+  --text-secondary: #5A6080;
+  --primary: #7C5CD6;
+  --primary-hover: #6A4BD0;
+  --primary-soft: rgba(124, 92, 214, 0.14);
+  --primary-border: rgba(124, 92, 214, 0.25);
+  --nav-bg: rgba(255, 255, 255, 0.35);
+  --badge-bg: rgba(255, 255, 255, 0.45);
+  --canvas-bg: rgba(255, 255, 255, 0.4);
+  --hero-glow: rgba(159, 208, 247, 0.35);
+  --placeholder: #8A90A8;
+  --focus-ring: rgba(124, 92, 214, 0.25);
+  --radius: 20px;
+  --radius-sm: 14px;
+  --shadow-sm: 0 4px 16px rgba(31, 36, 64, 0.1);
+  --shadow: 0 8px 32px rgba(31, 36, 64, 0.18);
+  --shadow-lg: 0 16px 48px rgba(31, 36, 64, 0.25);
+}
+[data-theme="dark"][data-style="glassmorphism"] {
+  --bg: #10142A;
+  --surface: rgba(30, 41, 59, 0.5);
+  --surface-soft: rgba(30, 41, 59, 0.35);
+  --border: rgba(255, 255, 255, 0.14);
+  --text: #EEF2FF;
+  --text-secondary: #9AA3C0;
+  --primary: #A78BFA;
+  --primary-hover: #C4B5FD;
+  --primary-soft: rgba(167, 139, 250, 0.18);
+  --primary-border: rgba(167, 139, 250, 0.35);
+  --nav-bg: rgba(16, 20, 42, 0.5);
+  --badge-bg: rgba(16, 20, 42, 0.5);
+  --canvas-bg: rgba(16, 20, 42, 0.45);
+  --hero-glow: rgba(34, 211, 238, 0.12);
+  --focus-ring: rgba(167, 139, 250, 0.3);
+}
+[data-style="glassmorphism"] body {
+  background:
+    radial-gradient(60rem 40rem at 85% -10%, rgba(194, 163, 247, 0.5), transparent 60%),
+    radial-gradient(50rem 34rem at -15% 110%, rgba(159, 208, 247, 0.5), transparent 60%),
+    var(--bg);
+  background-attachment: fixed;
+}
+[data-theme="dark"][data-style="glassmorphism"] body {
+  background:
+    radial-gradient(60rem 40rem at 85% -10%, rgba(124, 92, 214, 0.3), transparent 60%),
+    radial-gradient(50rem 34rem at -15% 110%, rgba(34, 211, 238, 0.16), transparent 60%),
+    var(--bg);
+  background-attachment: fixed;
+}
+[data-style="glassmorphism"] .card,
+[data-style="glassmorphism"] .btn,
+[data-style="glassmorphism"] .badge,
+[data-style="glassmorphism"] .skill-list li,
+[data-style="glassmorphism"] .project-stack span,
+[data-style="glassmorphism"] .edu-tag,
+[data-style="glassmorphism"] .footer-socials a,
+[data-style="glassmorphism"] .form-group input,
+[data-style="glassmorphism"] .form-group textarea,
+[data-style="glassmorphism"] .player-canvas,
+[data-style="glassmorphism"] .theme-toggle,
+[data-style="glassmorphism"] .style-gear {
+  background: var(--surface);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+[data-style="glassmorphism"] .section-alt {
+  background: var(--surface-soft);
+}
+[data-style="glassmorphism"] .footer {
+  background: transparent;
+}
+[data-style="glassmorphism"] .style-popover {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+[data-theme="dark"][data-style="glassmorphism"] .style-popover {
+  background: rgba(16, 20, 42, 0.75);
+}
+
+/* ---------- Neumorphism ---------- */
+[data-style="neumorphism"] {
+  --bg: #E8EBF2;
+  --surface: #E8EBF2;
+  --surface-soft: #E8EBF2;
+  --border: transparent;
+  --text: #3D4566;
+  --text-secondary: #8A90A8;
+  --primary: #5B6BD6;
+  --primary-hover: #4A59C9;
+  --primary-soft: rgba(91, 107, 214, 0.12);
+  --primary-border: transparent;
+  --nav-bg: rgba(232, 235, 242, 0.92);
+  --badge-bg: #E8EBF2;
+  --canvas-bg: #E8EBF2;
+  --hero-glow: rgba(255, 255, 255, 0.6);
+  --placeholder: #8A90A8;
+  --focus-ring: rgba(91, 107, 214, 0.3);
+  --radius: 18px;
+  --radius-sm: 12px;
+  --shadow-sm: 6px 6px 12px rgba(163, 170, 190, 0.55), -6px -6px 12px rgba(255, 255, 255, 0.9);
+  --shadow: 8px 8px 16px rgba(163, 170, 190, 0.55), -8px -8px 16px rgba(255, 255, 255, 0.9);
+  --shadow-lg: 12px 12px 24px rgba(163, 170, 190, 0.6), -12px -12px 24px rgba(255, 255, 255, 0.95);
+}
+[data-theme="dark"][data-style="neumorphism"] {
+  --bg: #262A33;
+  --surface: #262A33;
+  --surface-soft: #262A33;
+  --text: #D5DAE5;
+  --text-secondary: #7E8595;
+  --primary: #8B9AF8;
+  --primary-hover: #A5B1FA;
+  --primary-soft: rgba(139, 154, 248, 0.15);
+  --nav-bg: rgba(38, 42, 51, 0.92);
+  --badge-bg: #262A33;
+  --canvas-bg: #262A33;
+  --hero-glow: rgba(0, 0, 0, 0.35);
+  --placeholder: #7E8595;
+  --shadow-sm: 6px 6px 12px rgba(0, 0, 0, 0.55), -6px -6px 12px rgba(255, 255, 255, 0.06);
+  --shadow: 8px 8px 16px rgba(0, 0, 0, 0.55), -8px -8px 16px rgba(255, 255, 255, 0.06);
+  --shadow-lg: 12px 12px 24px rgba(0, 0, 0, 0.6), -12px -12px 24px rgba(255, 255, 255, 0.07);
+}
+[data-style="neumorphism"] .card,
+[data-style="neumorphism"] .badge,
+[data-style="neumorphism"] .skill-list li,
+[data-style="neumorphism"] .project-stack span,
+[data-style="neumorphism"] .edu-tag,
+[data-style="neumorphism"] .footer-socials a,
+[data-style="neumorphism"] .player-canvas,
+[data-style="neumorphism"] .theme-toggle,
+[data-style="neumorphism"] .style-gear {
+  border: none;
+  box-shadow: var(--shadow-sm);
+}
+[data-style="neumorphism"] .btn {
+  border: none;
+  box-shadow: var(--shadow-sm);
+}
+[data-style="neumorphism"] .btn:active {
+  box-shadow: inset 4px 4px 8px rgba(163, 170, 190, 0.6), inset -4px -4px 8px rgba(255, 255, 255, 0.9);
+}
+[data-theme="dark"][data-style="neumorphism"] .btn:active {
+  box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.6), inset -4px -4px 8px rgba(255, 255, 255, 0.07);
+}
+[data-style="neumorphism"] .form-group input,
+[data-style="neumorphism"] .form-group textarea {
+  background: var(--surface);
+  border: none;
+  box-shadow: inset 4px 4px 8px rgba(163, 170, 190, 0.5), inset -4px -4px 8px rgba(255, 255, 255, 0.9);
+}
+[data-style="neumorphism"] .form-group input:focus,
+[data-style="neumorphism"] .form-group textarea:focus {
+  border: none;
+}
+[data-theme="dark"][data-style="neumorphism"] .form-group input,
+[data-theme="dark"][data-style="neumorphism"] .form-group textarea {
+  box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.6), inset -4px -4px 8px rgba(255, 255, 255, 0.07);
+}
+[data-style="neumorphism"] .footer {
+  background: var(--surface);
+  border-top: none;
+  box-shadow: inset 0 8px 14px -12px rgba(163, 170, 190, 0.8);
+}
+[data-theme="dark"][data-style="neumorphism"] .footer {
+  box-shadow: inset 0 8px 14px -12px rgba(0, 0, 0, 0.8);
+}
+
+/* ---------- Neobrutalism ---------- */
+[data-style="neobrutalism"] {
+  --bg: #FFDE59;
+  --surface: #FFFDF5;
+  --surface-soft: #FFF3C4;
+  --border: #111111;
+  --text: #111111;
+  --text-secondary: #444444;
+  --primary: #4D13D1;
+  --primary-hover: #3B0EA6;
+  --primary-soft: #EADFFF;
+  --primary-border: #111111;
+  --nav-bg: rgba(255, 222, 89, 0.95);
+  --badge-bg: #FFDE59;
+  --canvas-bg: #FFFDF5;
+  --hero-glow: rgba(255, 255, 255, 0.5);
+  --placeholder: #666666;
+  --focus-ring: rgba(77, 19, 209, 0.35);
+  --radius: 0px;
+  --radius-sm: 0px;
+  --shadow-sm: 4px 4px 0 #111111;
+  --shadow: 6px 6px 0 #111111;
+  --shadow-lg: 10px 10px 0 #111111;
+}
+[data-theme="dark"][data-style="neobrutalism"] {
+  --bg: #141414;
+  --surface: #1E1E1E;
+  --surface-soft: #262626;
+  --border: #FFFFFF;
+  --text: #FFFFFF;
+  --text-secondary: #BBBBBB;
+  --primary: #FFC900;
+  --primary-hover: #FFDE59;
+  --primary-soft: rgba(255, 201, 0, 0.15);
+  --primary-border: #FFFFFF;
+  --nav-bg: rgba(20, 20, 20, 0.95);
+  --badge-bg: #FFC900;
+  --canvas-bg: #1E1E1E;
+  --hero-glow: rgba(255, 201, 0, 0.08);
+  --placeholder: #888888;
+  --shadow-sm: 4px 4px 0 #FFFFFF;
+  --shadow: 6px 6px 0 #FFFFFF;
+  --shadow-lg: 10px 10px 0 #FFFFFF;
+}
+[data-style="neobrutalism"] body {
+  background:
+    repeating-linear-gradient(45deg, transparent 0 24px, rgba(0, 0, 0, 0.04) 24px 48px),
+    var(--bg);
+}
+[data-theme="dark"][data-style="neobrutalism"] body {
+  background:
+    repeating-linear-gradient(45deg, transparent 0 24px, rgba(255, 255, 255, 0.03) 24px 48px),
+    var(--bg);
+}
+[data-style="neobrutalism"] .card,
+[data-style="neobrutalism"] .btn,
+[data-style="neobrutalism"] .badge,
+[data-style="neobrutalism"] .skill-list li,
+[data-style="neobrutalism"] .project-stack span,
+[data-style="neobrutalism"] .edu-tag,
+[data-style="neobrutalism"] .footer-socials a,
+[data-style="neobrutalism"] .player-canvas,
+[data-style="neobrutalism"] .player-play,
+[data-style="neobrutalism"] .theme-toggle,
+[data-style="neobrutalism"] .style-gear {
+  border: 2px solid var(--border) !important;
+}
+[data-style="neobrutalism"] .btn:active,
+[data-style="neobrutalism"] .theme-toggle:active,
+[data-style="neobrutalism"] .style-gear:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+[data-style="neobrutalism"] .badge {
+  background: var(--badge-bg);
+  color: #111111;
+}
+[data-theme="dark"][data-style="neobrutalism"] .badge {
+  color: #111111;
+}
+
+/* ---------- Flat design ---------- */
+[data-style="flat"] {
+  --bg: #F1F3F5;
+  --surface: #FFFFFF;
+  --surface-soft: #E9ECEF;
+  --border: #DEE2E6;
+  --text: #212529;
+  --text-secondary: #737A82;
+  --primary: #F76707;
+  --primary-hover: #E8590C;
+  --primary-soft: #FFF4E6;
+  --primary-border: #FFD8A8;
+  --nav-bg: rgba(255, 255, 255, 0.92);
+  --badge-bg: #FFFFFF;
+  --canvas-bg: #F1F3F5;
+  --hero-glow: #FFE8CC;
+  --placeholder: #9AA0A6;
+  --focus-ring: rgba(247, 103, 7, 0.25);
+  --radius: 6px;
+  --radius-sm: 4px;
+  --shadow-sm: none;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+[data-theme="dark"][data-style="flat"] {
+  --bg: #101216;
+  --surface: #171A1F;
+  --surface-soft: #1D2127;
+  --border: #262B33;
+  --text: #E9ECEF;
+  --text-secondary: #99A0A8;
+  --primary: #FF922B;
+  --primary-hover: #FFA94D;
+  --primary-soft: rgba(255, 146, 43, 0.15);
+  --primary-border: rgba(255, 146, 43, 0.4);
+  --nav-bg: rgba(16, 18, 22, 0.92);
+  --badge-bg: #171A1F;
+  --canvas-bg: #1D2127;
+  --hero-glow: rgba(255, 146, 43, 0.08);
+  --placeholder: #6B7177;
+  --focus-ring: rgba(255, 146, 43, 0.3);
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+[data-style="flat"] .btn,
+[data-style="flat"] .skill-list li,
+[data-style="flat"] .project-stack span,
+[data-style="flat"] .form-group input,
+[data-style="flat"] .form-group textarea,
+[data-style="flat"] .footer-socials a,
+[data-style="flat"] .player-canvas {
+  border-radius: var(--radius-sm);
+}
+
+/* ---------- Minimalism ---------- */
+[data-style="minimalism"] {
+  --bg: #FFFFFF;
+  --surface: #FFFFFF;
+  --surface-soft: #F7F7F7;
+  --border: #E8E8E8;
+  --text: #111111;
+  --text-secondary: #9A9A9A;
+  --primary: #111111;
+  --primary-hover: #000000;
+  --primary-soft: #F2F2F2;
+  --primary-border: #DDDDDD;
+  --nav-bg: rgba(255, 255, 255, 0.9);
+  --badge-bg: #FFFFFF;
+  --canvas-bg: #F7F7F7;
+  --hero-glow: #FAFAFA;
+  --placeholder: #B5B5B5;
+  --focus-ring: rgba(0, 0, 0, 0.15);
+  --radius: 3px;
+  --radius-sm: 2px;
+  --shadow-sm: none;
+  --shadow: none;
+  --shadow-lg: none;
+}
+[data-theme="dark"][data-style="minimalism"] {
+  --bg: #0B0B0B;
+  --surface: #111111;
+  --surface-soft: #161616;
+  --border: #232323;
+  --text: #F2F2F2;
+  --text-secondary: #8A8A8A;
+  --primary: #F2F2F2;
+  --primary-hover: #FFFFFF;
+  --primary-soft: rgba(255, 255, 255, 0.08);
+  --primary-border: #333333;
+  --nav-bg: rgba(11, 11, 11, 0.9);
+  --badge-bg: #111111;
+  --canvas-bg: #161616;
+  --hero-glow: rgba(255, 255, 255, 0.04);
+  --placeholder: #5C5C5C;
+  --focus-ring: rgba(255, 255, 255, 0.2);
+}
+[data-style="minimalism"] .btn,
+[data-style="minimalism"] .skill-list li,
+[data-style="minimalism"] .project-stack span,
+[data-style="minimalism"] .form-group input,
+[data-style="minimalism"] .form-group textarea,
+[data-style="minimalism"] .footer-socials a,
+[data-style="minimalism"] .player-canvas,
+[data-style="minimalism"] .theme-toggle,
+[data-style="minimalism"] .style-gear {
+  border-radius: var(--radius-sm);
+}
+[data-style="minimalism"] .section-title::before {
+  width: 3px;
+  height: 18px;
+  border-radius: 0;
+}
+[data-style="minimalism"] .badge {
+  box-shadow: none;
+}
+/* Light text on light primary in dark minimalism / neobrutalism */
+[data-theme="dark"][data-style="minimalism"] .btn-primary,
+[data-theme="dark"][data-style="minimalism"] .player-play,
+[data-theme="dark"][data-style="neobrutalism"] .btn-primary,
+[data-theme="dark"][data-style="neobrutalism"] .player-play {
+  color: #111111;
 }

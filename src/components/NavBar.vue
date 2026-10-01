@@ -1,6 +1,7 @@
 <script setup>
 import { activeSection } from '../state.js'
 import ThemeToggle from './ThemeToggle.vue'
+import StyleSwitcher from './StyleSwitcher.vue'
 
 const items = [
   { id: 'home', label: 'Home' },
@@ -27,6 +28,7 @@ const items = [
             :href="'#' + item.id"
           >{{ item.label }}</a>
         </div>
+        <StyleSwitcher />
         <ThemeToggle />
       </div>
     </div>
